@@ -15,7 +15,7 @@ func main() {
 
 func createList(size int) []int {
 	var list []int
-	for i := 0; i < size; i++ {
+	for i := 1; i <= size; i++ {
 		list = append(list, i)
 	}
 	return list
@@ -30,13 +30,13 @@ func binarySearch(list []int, target int) (int, error) {
 	last := len(list) - 1
 
 	for first <= last {
-		mid := (last - first) / 2
+		mid := (last + first) / 2
 		num := list[mid]
 
 		if target > num {
-			first = mid
+			first = mid + 1
 		} else if target < num {
-			last = mid
+			last = mid - 1
 		} else {
 			return mid, nil
 		}
